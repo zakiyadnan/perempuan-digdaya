@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { UserRound } from "lucide-react"; // ✅ ikon wanita
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,17 +12,43 @@ export default function Navbar() {
     if (search.trim() !== "") {
       navigate(`/articles?keyword=${encodeURIComponent(search.trim())}`);
       setSearch("");
-      setMenuOpen(false); // tutup menu di mobile
+      setMenuOpen(false);
     }
   };
 
   return (
     <header className="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-4">
-        {/* Logo */}
-        <Link to="/" className="text-2xl font-semibold tracking-wide text-gray-800 hover:text-pink-500 transition">
-          Perempuan <span className="text-pink-400">Digdaya</span>
-        </Link>
+
+        {/* ================= LOGO ================= */}
+<Link
+  to="/"
+  className="
+    flex items-center
+    gap-2 sm:gap-3
+    text-xl sm:text-2xl
+    font-semibold
+    tracking-wide
+    text-gray-800
+    hover:text-pink-500
+    transition
+  "
+>
+  <img
+    src="/logo/logodigdaya.png"
+    alt="Perempuan Digdaya"
+    className="
+      h-9 sm:h-11 md:h-12
+      w-auto
+      object-contain
+      shrink-0
+    "
+  />
+  <span className="leading-tight">
+    Perempuan<span className="text-pink-400">Digdaya</span>
+  </span>
+</Link>
+
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-6 text-gray-700 font-medium items-center">
